@@ -24,7 +24,7 @@ class Child extends TestCode
         System.out.println(testCode.b);
         System.out.println(c);
         System.out.println(d);
-
+System.out.println(d);
     }
 }
 
