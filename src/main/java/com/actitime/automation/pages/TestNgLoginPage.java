@@ -9,19 +9,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public class TestNgLoginPage {
     WebDriver driver;
-
     CommonFunction commonFunction;
-
     public TestNgLoginPage(WebDriver driver) {
         this.driver=driver;
         PageFactory.initElements(driver,this);
     }
-
-
     public By username = By.id("username");
-
     public By password =By.name("pwd");
-
     @FindBy(id="loginButton")
     WebElement loginButton;
     public void login(String username,String password)
@@ -30,8 +24,5 @@ public class TestNgLoginPage {
         driver.findElement(this.username).sendKeys(username);
         driver.findElement(this.password).sendKeys(password);
         commonFunction.click(loginButton);
-
     }
-
-
 }
