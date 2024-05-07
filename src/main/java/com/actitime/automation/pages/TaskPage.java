@@ -1,4 +1,4 @@
-package com.actitime.automation;
+package com.actitime.automation.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
