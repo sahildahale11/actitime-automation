@@ -1,4 +1,4 @@
-package com.actitime.automation;
+package com.actitime.automation.pages;
 
 import com.commonfunction.automation.CommonFunction;
 import org.openqa.selenium.By;
