@@ -7,12 +7,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class DeleteCustomerTestNg {
+public class TestNgDeleteCustomer {
     WebDriver driver;
 
     @BeforeClass
@@ -37,7 +38,9 @@ public class DeleteCustomerTestNg {
         // Search customer
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='Add New']/following::input[1]"))).sendKeys("Mr.john Palekar");
         // click on customer
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='filteredContainer']/descendant::div[9]"))).click();
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='filteredContainer']/descendant::div[9]")));
+        element.click();
+//        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='filteredContainer']/descendant::div[9]"))).click();
         // click on edit button
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='filteredContainer']/descendant::div[9]/following::div[2]"))).click();
         // click on action button
@@ -54,15 +57,9 @@ public class DeleteCustomerTestNg {
         Alert alert = driver.switchTo().alert();
         String text = alert.getText().trim();
         System.out.println("Alert text : "+text);
-        if (text.equalsIgnoreCase("Selected customer has been deleted concurrently."))
-       {
-           System.out.println("Test Case Pass, Project will be deleted ");
-       }
-       else
-       {
-           throw new Exception("Test case failed , Project can not be deleted");
-       }
-       alert.accept();
+        //replace if-else with Hard assertion
+        Assert.assertEquals(text, "Selected customer has been deleted concurrently.", "Test Case Pass, Customer will be deleted ");
+        alert.accept();
 
     }
 }

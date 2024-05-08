@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class CustomerNameNotEmptyTestNG {
+public class TestNgCustomerNameNotEmpty {
     WebDriver driver;
     @BeforeClass
     public void setup() throws InterruptedException {

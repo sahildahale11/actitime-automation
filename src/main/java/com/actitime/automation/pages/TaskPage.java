@@ -20,10 +20,6 @@ public class TaskPage {
 
     public By project =By.xpath("//div[text()='All Customers']/following::div[11]");
 
-    //public By taskModule = By.xpath("//div[@id='container_tasks']/following::div[1]");
-
-   // public By project = By.xpath("//div[text()='All Customers']/following::div[11]");
-
     // driver.findElement replace  by @FindBy Annotation
     @FindBy(xpath = "//tr[@class='headers']/descendant::div[2]")
     public WebElement checkBox;

@@ -1,21 +1,47 @@
 package com.actitime.automation;
 
 import com.commonfunction.automation.CommonFunction;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.ISuite;
+import org.testng.ITestResult;
+import org.testng.TestListenerAdapter;
 import org.testng.annotations.*;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-public class TestNGLoginTest {
+public class TestNGLoginTest extends TestListenerAdapter {
     WebDriver driver;
+    String ScreenShotFloderPath;
+
+    public void onStart(ISuite suite)
+    {
+        System.out.println("This is onStart method of ISuiteListener");
+        String currentDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd_MM_yy"));
+        System.out.println(currentDate);
+        ScreenShotFloderPath=System.getProperty("user.dir")+"/reports"+currentDate;
+        File file = new File(ScreenShotFloderPath);
+        if (!file.exists())
+        {
+            //Check if the floder is not present
+            file.mkdir(); // Create a folder
+        }
+    }
 
 
-
-    @BeforeClass(groups ="regression")
+    @BeforeClass(groups = "regression")
     public void launchBrowser() throws InterruptedException {
         CommonFunction commonFunction = new CommonFunction();
         driver = commonFunction.launchBrowser("chrome");
@@ -26,8 +52,7 @@ public class TestNGLoginTest {
 
     @DataProvider
     public Object[][] getTestData() {
-        return new Object[][] {
-                {"sahil.dahale98@gmail.com", "Pass@123", "Valid"},
+        return new Object[][]{{"sahil.dahale98@gmail.com", "Pass@123", "Valid"},
 //                {"sd.hingoli@gmail.com", "Pass", "Invalid"},
 //                {"sahil@123gmail.com", "Pass@123", "Invalid"},
 //                {"rrrmgr@gmail.com", "kmgk123", "Invalid"},
@@ -39,14 +64,13 @@ public class TestNGLoginTest {
         };
     }
 
-    @Test(dataProvider = "getTestData",groups = "regression")
-    public void Login(String username, String password,String status) throws Exception {
-
-
-       driver.findElement(By.name("username")).sendKeys(username);
+    @Test(dataProvider = "getTestData", groups = "regression")
+    public void Login(String username, String password, String status) throws Exception {
+        driver.findElement(By.name("username")).sendKeys(username);
         driver.findElement(By.name("pwd")).sendKeys(password);
         driver.findElement(By.xpath("//a[@id='loginButton']/child::div")).click();
         Thread.sleep(10000);
+        // - Normal code without using Assertion
        /* if (status.equals("Valid")) {
             String timeTrack = driver.findElement(By.xpath("//div[@id='container_tt']/following-sibling::div[1]")).getText();
             if (timeTrack.equals("Time-Track")) {
@@ -70,7 +94,7 @@ public class TestNGLoginTest {
             throw new Exception("invalid Credentials");
         }*/
 
-
+        // -- replace code with Hard Assertion
         if (status.equals("Valid")) {
             String timeTrack = driver.findElement(By.xpath("//div[@id='container_tt']/following-sibling::div[1]")).getText();
             Assert.assertEquals(timeTrack, "Time-Track", "Test Case Fail, Unable to login application");
@@ -85,6 +109,30 @@ public class TestNGLoginTest {
         } else {
             throw new Exception("invalid Credentials");
         }
+    }
+    // Take Screenshots
+//    public void onTestFailure(ITestResult result) {
+//        // getTestContext return context (variables, method name, exceptions, results) of the @Test method
+//        try {
+//            WebDriver driver = (WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
+//            TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+//            File srcFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
+//
+//            //get the method name from context
+//
+//            String methodName = result.getMethod().getMethodName();
+//
+//            String fileName = ScreenShotFloderPath+"/"+methodName+".png";
+//            File dstFile = new File(fileName);
+//            FileUtils.copyFile(srcFile, dstFile);
+//        } catch (Exception e) {
+//        }
+//    }
 
     }
-}
+
+
+
+
+
+

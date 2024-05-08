@@ -7,14 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.Test;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class AddTask {
-    @Test
-    public void addTask() throws Exception {
+    public static void main(String[] args) throws Exception {
         // get the current day of month
         int dayOfMonth = LocalDateTime.now().getDayOfMonth();
         System.out.println(dayOfMonth);
@@ -88,19 +86,19 @@ public class AddTask {
         driver.findElement(By.xpath("//div[@class='detailsRow']//div[text()='Set up deadline']")).click();
         String monthXpath = "//td[starts-with(@title,'" + actualCurrentMonth + "')]/div";
         System.out.println(monthXpath);
-        List<WebElement>  days = driver.findElements(By.xpath(monthXpath));
-        for ( WebElement daysElement:days )
-        {
-            String day = daysElement.getText();
-            System.out.println(day);
-            // check if the day value is equals with day of month then select that day
-            //also convert dayOfMonth into String for comparison
-            if (day.equals(String.valueOf(dayOfMonth)))
-            {
-                daysElement.click();
-            }
-        }
-        Thread.sleep(2000);
+      List<WebElement>  days = driver.findElements(By.xpath(monthXpath));
+      for ( WebElement daysElement:days )
+      {
+          String day = daysElement.getText();
+          System.out.println(day);
+          // check if the day value is equals with day of month then select that day
+          //also convert dayOfMonth into String for comparison
+          if (day.equals(String.valueOf(dayOfMonth)))
+          {
+              daysElement.click();
+          }
+      }
+      Thread.sleep(2000);
 //      //Estimate
 //        driver.findElement(By.xpath("//div[@class='timeEditor editable empty']/child::div[1]")).click();
 //        Thread.sleep(2000);

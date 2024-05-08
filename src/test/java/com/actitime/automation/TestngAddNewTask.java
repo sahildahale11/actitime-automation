@@ -44,10 +44,10 @@ public class TestngAddNewTask {
         driver.findElement(By.xpath("//div[text()='+ New Tasks']")).click();
         Thread.sleep(5000);
         // click on select customer dropdown
-        String customerName = driver.findElement(By.xpath("//DIV[@class='selectedItem'][text()='Mr.john Palekar']")).getText();
+        String customerName = driver.findElement(By.xpath("//tbody/tr[1]/td[1]/div[1]/div[1]/div[1]/div[3]")).getText();
         System.out.println("name : " + customerName);
         if (customerName.isEmpty() || "null".equalsIgnoreCase(customerName) || customerName == null) {
-            WebElement customerOption = driver.findElement(By.xpath("//DIV[@class='itemRow cpItemRow '][text()='Mr.john Palekar']/self::DIV"));
+            WebElement customerOption = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody/tr[1]/td[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]")));
             customerOption.click();
         } else {
             System.out.println(" Customer value Already Set");
@@ -62,11 +62,11 @@ public class TestngAddNewTask {
             System.out.println("Project Name by Default set");
         }
         Thread.sleep(2000);
-        driver.findElement(By.xpath("//div[@class='importTasksHeader']/following::input[2]")).sendKeys("Amazon Meeting");
-        driver.findElement(By.xpath("//div[@class='importTasksHeader']/following::input[6]")).sendKeys("Amazon - filpkart  Meeting");
-        driver.findElement(By.xpath("//div[@class='importTasksHeader']/following::input[10]")).sendKeys(" market Amazon Meeting research");
-        driver.findElement(By.xpath("//div[@class='importTasksHeader']/following::input[14]")).sendKeys("presentation  Amazon Meetingslides");
-        driver.findElement(By.xpath("//div[@class='importTasksHeader']/following::input[18]")).sendKeys(" project  Amazon Meeting proposal");
+        driver.findElement(By.xpath("//div[@class='importTasksHeader']/following::input[2]")).sendKeys("Meeting Hashmap");
+        driver.findElement(By.xpath("//div[@class='importTasksHeader']/following::input[6]")).sendKeys("Automation meeting");
+        driver.findElement(By.xpath("//div[@class='importTasksHeader']/following::input[10]")).sendKeys(" market target");
+        driver.findElement(By.xpath("//div[@class='importTasksHeader']/following::input[14]")).sendKeys("Amazon Web  Services");
+        driver.findElement(By.xpath("//div[@class='importTasksHeader']/following::input[18]")).sendKeys(" Econ Task ");
         driver.findElement(By.xpath("//div[text()='Create Tasks']")).click();
         Thread.sleep(3000);
         List<WebElement> taskRows = driver.findElements(By.xpath("//tr[contains(@class,'taskRow')]/td[2]//div[@class='title']"));
