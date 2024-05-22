@@ -23,10 +23,10 @@ public class CommonFunction {
         PageFactory.initElements(driver,this);
     }
 
-//    public void CommonFunction1(WebDriver driver) {
-//        this.driver=driver;
-//
-//    }
+    public void CommonFunction1(WebDriver driver) {
+        this.driver=driver;
+
+    }
 
 
     public WebDriver launchBrowser(String name) {
