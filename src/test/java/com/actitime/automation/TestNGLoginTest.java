@@ -1,23 +1,16 @@
 package com.actitime.automation;
 
-import com.commonfunction.automation.CommonFunction;
-import org.apache.commons.io.FileUtils;
+import com.actitime.automation.common.CommonFunction;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ISuite;
-import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 import org.testng.annotations.*;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

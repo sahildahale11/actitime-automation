@@ -1,7 +1,6 @@
 package com.actitime.automation;
 
-import com.commonfunction.automation.CommonFunction;
-import org.checkerframework.checker.units.qual.A;
+import com.actitime.automation.common.CommonFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

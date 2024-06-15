@@ -1,10 +1,9 @@
 package com.actitime.automation;
 
-import com.commonfunction.automation.CommonFunction;
+import com.actitime.automation.common.CommonFunction;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 

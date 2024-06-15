@@ -1,12 +1,7 @@
 package PreacticeCode;
 
-import org.checkerframework.checker.units.qual.C;
 
-
-
-
-
-import com.commonfunction.automation.CommonFunction;
+import com.actitime.automation.common.CommonFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

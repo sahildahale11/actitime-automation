@@ -1,14 +1,12 @@
 package com.actitime.automation;
 
 
-import com.commonfunction.automation.CommonFunction;
-import com.commonfunction.automation.CommonFunction;
+import com.actitime.automation.common.CommonFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.awt.*;
-import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
 public class ActiKeyboardOperationRobotClass {

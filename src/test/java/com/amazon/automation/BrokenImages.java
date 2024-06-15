@@ -1,13 +1,12 @@
 package com.amazon.automation;
 
-import com.commonfunction.automation.CommonFunction;
+import com.actitime.automation.common.CommonFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.util.List;
 

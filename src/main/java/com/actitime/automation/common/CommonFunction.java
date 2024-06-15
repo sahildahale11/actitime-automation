@@ -1,4 +1,4 @@
-package com.commonfunction.automation;
+package com.actitime.automation.common;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

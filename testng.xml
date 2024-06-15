@@ -4,12 +4,12 @@
         <listener class-name="com.actitime.automation.TestNGListeners"></listener>
     </listeners>
     <test name="regression">
-        <groups>
+        <!--<groups>
             <run>
                 <include name="regression"/>
                 <exclude name="sanity"/>
             </run>
-        </groups>
+        </groups>-->
         <classes>
             <class name="com.actitime.automation.TestNGLoginTest"></class>
             <class name="com.actitime.automation.TestNgAddCustomer"></class>

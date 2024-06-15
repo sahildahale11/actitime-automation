@@ -72,7 +72,7 @@ public class TestNgAddCustomer {
 
 package com.actitime.automation;
 
-import com.commonfunction.automation.CommonFunction;
+import com.actitime.automation.common.CommonFunction;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

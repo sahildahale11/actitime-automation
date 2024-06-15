@@ -86,8 +86,7 @@ public class TestngAddNewProject {
 
 package com.actitime.automation;
 
-import com.commonfunction.automation.CommonFunction;
-import org.openqa.selenium.Alert;
+import com.actitime.automation.common.CommonFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

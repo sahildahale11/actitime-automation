@@ -1,4 +1,4 @@
-package com.commonfunction.automation;
+package com.actitime.automation.common;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
